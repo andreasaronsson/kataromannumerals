@@ -1,2 +1,2 @@
 # kataromannumerals
-http://codingdojo.org/cgi-bin/index.pl?KataRomanNumerals
+http://codingdojo.org/kata/RomanNumerals/
