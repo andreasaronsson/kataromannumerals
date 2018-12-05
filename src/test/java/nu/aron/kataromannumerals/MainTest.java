@@ -34,7 +34,7 @@ class MainTest {
 
     @Test
     void testThrees() {
-        Arbitrary<Integer> numbers = Arbitrary.integer()
+        var numbers = Arbitrary.integer()
                 .filter(i -> i < 3000)
                 .filter(i -> i > 0)
                 .filter(i -> i % 10 == 3);
@@ -43,14 +43,14 @@ class MainTest {
                 .forAll(numbers)
                 .suchThat(threeIsIII)
                 .check();
-        Option<Tuple> sample = result.sample();
+        var sample = result.sample();
         sample.stdout();
         result.assertIsSatisfied();
     }
 
     @Test
     void testFives() {
-        Arbitrary<Integer> numbers = Arbitrary.integer()
+        var numbers = Arbitrary.integer()
                 .filter(i -> i < 3000)
                 .filter(i -> i > 0)
                 .filter(i -> i % 10 == 5);

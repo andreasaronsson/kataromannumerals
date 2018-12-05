@@ -33,11 +33,9 @@ class Main {
                 .concat(reduceQuadraginta.apply(reduceNonaginta.apply(reduceQuinquaginta.apply(decem.apply(number)))))
                 .concat(reduceQuattuor.apply(reduceNovem.apply(reduceQuinque.apply(unus.apply(number)))));
     }
-
     Function1<String, String> reduceHundreds = reduceQuingenti.andThen(reduceNongentesimus);
     Function1<String, String> reduceTens = reduceQuinquaginta.andThen(reduceNonaginta).andThen(reduceQuadraginta);
     Function1<String, String> reduceOnes = reduceQuinque.andThen(reduceNovem).andThen(reduceQuattuor);
-
     String numeral(int number) {
         return mille.apply(number)
                 .concat(reduceHundreds.apply(centum.apply(number)))
