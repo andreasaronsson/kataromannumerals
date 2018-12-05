@@ -1,40 +1,39 @@
 package nu.aron.kataromannumerals;
 
-import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import javaslang.CheckedFunction1;
-import javaslang.Tuple;
-import javaslang.control.Option;
-import javaslang.test.Arbitrary;
-import javaslang.test.CheckResult;
-import javaslang.test.Property;
+import io.vavr.CheckedFunction1;
+import io.vavr.Tuple;
+import io.vavr.control.Option;
+import io.vavr.test.Arbitrary;
+import io.vavr.test.CheckResult;
+import io.vavr.test.Property;
 
-public class MainTest {
+class MainTest {
 
     Main testee;
 
-    @Before
-    public void setUp() {
+    @BeforeEach
+    void setUp() {
         testee = new Main();
     }
 
     @Test
-    public void multipleChars() {
-        assertThat(testee.charMultiple.apply(2, "M"), is("MM"));
-        assertThat(testee.charMultiple.apply(0, "C"), is(""));
+    void multipleChars() {
+        assertEquals("MM", testee.charMultiple.apply(2, "M"));
+        assertEquals("", testee.charMultiple.apply(0, "C"));
     }
 
     @Test
-    public void thousands() {
-        assertThat(testee.mille.apply(2000), is("MM"));
+    void thousands() {
+        assertEquals("MM", testee.mille.apply(2000));
     }
 
     @Test
-    public final void testThrees() {
+    void testThrees() {
         Arbitrary<Integer> numbers = Arbitrary.integer()
                 .filter(i -> i < 3000)
                 .filter(i -> i > 0)
@@ -50,7 +49,7 @@ public class MainTest {
     }
 
     @Test
-    public final void testFives() {
+    void testFives() {
         Arbitrary<Integer> numbers = Arbitrary.integer()
                 .filter(i -> i < 3000)
                 .filter(i -> i > 0)
@@ -66,7 +65,7 @@ public class MainTest {
     }
 
     @Test
-    public final void testOnes() {
+    void testOnes() {
         Arbitrary<Integer> numbers = Arbitrary.integer()
                 .filter(i -> i < 3000)
                 .filter(i -> i > 0)
@@ -82,25 +81,25 @@ public class MainTest {
     }
 
     @Test
-    public void examples() {
-        assertThat(testee.numeral(1), is("I"));
-        assertThat(testee.numeral(2), is("II"));
-        assertThat(testee.numeral(3), is("III"));
-        assertThat(testee.numeral(4), is("IV"));
-        assertThat(testee.numeral(5), is("V"));
-        assertThat(testee.numeral(6), is("VI"));
-        assertThat(testee.numeral(7), is("VII"));
-        assertThat(testee.numeral(8), is("VIII"));
-        assertThat(testee.numeral(9), is("IX"));
-        assertThat(testee.numeral(10), is("X"));
-        assertThat(testee.numeral(19), is("XIX"));
-        assertThat(testee.numeral(49), is("XLIX"));
-        assertThat(testee.numeral(99), is("XCIX"));
-        assertThat(testee.numeral(309), is("CCCIX"));
-        assertThat(testee.numeral(527), is("DXXVII"));
-        assertThat(testee.numeral(789), is("DCCLXXXIX"));
-        assertThat(testee.numeral(1888), is("MDCCCLXXXVIII"));
-        assertThat(testee.numeral(1999), is("MCMXCIX"));
-        assertThat(testee.numeral(2001), is("MMI"));
+    void examples() {
+        assertEquals("I", testee.numeral(1));
+        assertEquals("II", testee.numeral(2));
+        assertEquals("III", testee.numeral(3));
+        assertEquals("IV", testee.numeral(4));
+        assertEquals("V", testee.numeral(5));
+        assertEquals("VI", testee.numeral(6));
+        assertEquals("VII", testee.numeral(7));
+        assertEquals("VIII", testee.numeral(8));
+        assertEquals("IX", testee.numeral(9));
+        assertEquals("X", testee.numeral(10));
+        assertEquals("XIX", testee.numeral(19));
+        assertEquals("XLIX", testee.numeral(49));
+        assertEquals("XCIX", testee.numeral(99));
+        assertEquals("CCCIX", testee.numeral(309));
+        assertEquals("DXXVII", testee.numeral(527));
+        assertEquals("DCCLXXXIX", testee.numeral(789));
+        assertEquals("MDCCCLXXXVIII", testee.numeral(1888));
+        assertEquals("MCMXCIX", testee.numeral(1999));
+        assertEquals("MMI", testee.numeral(2001));
     }
 }

@@ -1,9 +1,9 @@
 package nu.aron.kataromannumerals;
 
-import javaslang.Function1;
-import javaslang.Function2;
-import javaslang.collection.CharSeq;
-import javaslang.collection.Stream;
+import io.vavr.Function1;
+import io.vavr.Function2;
+import io.vavr.collection.CharSeq;
+import io.vavr.collection.Stream;
 
 /**
  * Entry point
