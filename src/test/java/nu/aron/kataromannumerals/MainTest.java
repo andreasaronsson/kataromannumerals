@@ -6,10 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import io.vavr.CheckedFunction1;
-import io.vavr.Tuple;
-import io.vavr.control.Option;
 import io.vavr.test.Arbitrary;
-import io.vavr.test.CheckResult;
 import io.vavr.test.Property;
 
 class MainTest {
@@ -39,7 +36,7 @@ class MainTest {
                 .filter(i -> i > 0)
                 .filter(i -> i % 10 == 3);
         CheckedFunction1<Integer, Boolean> threeIsIII = i -> testee.numeral(i).endsWith("III");
-        CheckResult result = Property.def("threes")
+        var result = Property.def("threes")
                 .forAll(numbers)
                 .suchThat(threeIsIII)
                 .check();
@@ -55,27 +52,27 @@ class MainTest {
                 .filter(i -> i > 0)
                 .filter(i -> i % 10 == 5);
         CheckedFunction1<Integer, Boolean> fiveIsV = i -> testee.numeral(i).endsWith("V");
-        CheckResult result = Property.def("fives")
+        var result = Property.def("fives")
                 .forAll(numbers)
                 .suchThat(fiveIsV)
                 .check();
-        Option<Tuple> sample = result.sample();
+        var sample = result.sample();
         sample.stdout();
         result.assertIsSatisfied();
     }
 
     @Test
     void testOnes() {
-        Arbitrary<Integer> numbers = Arbitrary.integer()
+        var numbers = Arbitrary.integer()
                 .filter(i -> i < 3000)
                 .filter(i -> i > 0)
                 .filter(i -> i % 10 == 1);
         CheckedFunction1<Integer, Boolean> oneIsI = i -> testee.numeral(i).endsWith("I");
-        CheckResult result = Property.def("ones")
+        var result = Property.def("ones")
                 .forAll(numbers)
                 .suchThat(oneIsI)
                 .check();
-        Option<Tuple> sample = result.sample();
+        var sample = result.sample();
         sample.stdout();
         result.assertIsSatisfied();
     }
