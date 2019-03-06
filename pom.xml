@@ -10,14 +10,14 @@
   <parent>
     <groupId>nu.aron</groupId>
     <artifactId>maven-plugins</artifactId>
-    <version>5</version>
+    <version>7</version>
     <relativePath />
   </parent>
   <dependencies>
     <dependency>
       <groupId>org.assertj</groupId>
       <artifactId>assertj-core</artifactId>
-      <version>3.11.1</version>
+      <version>3.12.1</version>
     </dependency>
     <dependency>
       <groupId>io.vavr</groupId>
@@ -27,12 +27,12 @@
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
-      <version>1.8.0-beta2</version>
+      <version>1.8.0-beta4</version>
     </dependency>
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-simple</artifactId>
-      <version>1.8.0-beta2</version>
+      <version>1.8.0-beta4</version>
     </dependency>
     <dependency>
       <groupId>io.vavr</groupId>
@@ -43,13 +43,13 @@
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-api</artifactId>
-      <version>5.3.2</version>
+      <version>5.4.0</version>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-engine</artifactId>
-      <version>5.3.2</version>
+      <version>5.4.0</version>
       <scope>test</scope>
     </dependency>
     <dependency>
